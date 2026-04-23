@@ -1,0 +1,17 @@
+- [Audit HTML Design System](reference_audit_html_design_system.md) — Kompletná CSS/HTML library: variables, sekcie, komponenty, flip cards, pricing, responsive, JS patterns
+- [Audit product template](reference_audit_product_template.md) — Playbook: free audit → blurred upsell → flip card payment, pricing, sales args
+- [AI Audit verzie](reference_audit_versions.md) — "ai audit" (1 trh, Aquapond) vs "ai audit deep" (multi-trh, Lamely3D) — trigger words, rozdiely
+- [Eshop audit methodology](reference_eshop_audit_methodology.md) — 12-step externý audit proces pre nové eshop leady
+- [Dexfinity logo URLs](reference_dexfinity_logos.md) — Oficiálne logo URLs z dexfinity.com pre nav a footer
+- [Shoptet Premium design limits](reference_shoptet_premium_design_limits.md) — Čo ide/nejde v Premium, breaking changes, checkout limity
+- [Dexfinity brand always](feedback_dexfinity_brand_always.md) — Každý vizuál MUSÍ byť v Dexfinity dizajne, nikdy nie generic
+- [Audit design patterns](feedback_audit_design_patterns.md) — Page structure, color system, flip card CSS, komponenty, anti-patterns
+- [Audit double-check](feedback_audit_double_check.md) — Negatívne findings VŽDY overiť 2×, inak "Na overenie" namiesto "Kritické"
+- [Logo minimum sizes](feedback_logo_min_sizes.md) — Nav min 48px, footer min 64px — "Go Beyond" tagline nečitateľný pod 48px
+- [No overlapping touch targets](feedback_no_overlapping_touch.md) — Nikdy neprekrývať interaktívne prvky, používať action bars
+- [No unsubstantiated claims](feedback_no_unsubstantiated_claims.md) — KRITICKÉ: každé číslo v audite musí byť overiteľné, žiadne hádanie
+- [Gap analysis standard](feedback_gap_analysis_standard.md) — Každý audit potrebuje keyword gap + Google Reviews + human-friendly naming
+- [Verify ads on web](feedback_verify_ads_on_web.md) — VŽDY navštíviť landing pages pred tvrdením, že reklama je zbytočná
+- [Heureka reviews in audit](feedback_heureka_reviews_audit.md) — Heureka reviews ako social proof opportunity v eshop auditoch
+- [Gmail drafts always HTML](feedback_gmail_html.md) — Vždy text/html, nikdy plain text
+- [Gmail signature in drafts](feedback_gmail_signature.md) — Manuálne pripojiť Pavolov signature (API ho neautomaticky nepridá), nikdy hr tagy

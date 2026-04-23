@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dexfinity Design Learnings — 3 týždne práce na brand design systéme, AI Ads Auditoch a memory pack-u pre tím.">
+<title>Dexfinity Design Learnings — Go Beyond</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dex-blue: #0065F7;
+  --dex-navy: #05024E;
+  --dex-white: #ffffff;
+  --dex-light-bg: #F4F6FC;
+  --dex-blue-light: #E8F0FE;
+  --dex-blue-10: rgba(0, 101, 247, 0.1);
+  --dex-blue-20: rgba(0, 101, 247, 0.2);
+  --dex-text: #1A1A2E;
+  --dex-muted: #6B7280;
+  --dex-border: #E5E7EB;
+  --dex-teal: #16AB8B;
+  --dex-orange: #ff7f00;
+  --font-primary: 'Questrial', Arial, sans-serif;
+  --font-secondary: 'Poppins', Arial, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 2px 8px rgba(0, 101, 247, 0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-secondary);
+  color: var(--dex-text);
+  line-height: 1.6;
+  background: var(--dex-white);
+}
+h1, h2, h3, h4 { font-family: var(--font-primary); color: var(--dex-navy); }
+
+/* URGENCY BAR */
+.urgency {
+  background: var(--dex-blue); color: var(--dex-white); text-align: center;
+  padding: 12px 24px; font-size: 13px; font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--dex-border); padding: 10px 0;
+}
+.nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { height: 48px; }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--dex-muted); text-decoration: none; font-size: 13px;
+  font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--dex-blue); }
+.nav-links a.cta { color: var(--dex-blue); font-weight: 600; }
+.hamburger {
+  display: none; background: none; border: none; cursor: pointer;
+  padding: 8px; z-index: 1000; position: relative;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px; background: var(--dex-navy);
+  margin: 5px 0; border-radius: 2px; transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* CONTAINER + SECTIONS */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+section { padding: 72px 0; }
+section.alt { background: var(--dex-light-bg); }
+section h2 { font-size: 32px; font-weight: 400; margin-bottom: 8px; }
+section .section-sub { color: var(--dex-muted); font-size: 15px; margin-bottom: 40px; }
+.cat-header {
+  font-size: 13px; font-weight: 600; color: var(--dex-navy);
+  text-transform: uppercase; letter-spacing: 1.5px; margin: 36px 0 16px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--dex-blue); display: inline-block;
+}
+
+/* HERO */
+.hero {
+  background: var(--dex-navy); color: var(--dex-white);
+  padding: 100px 40px 120px; position: relative; overflow: hidden;
+}
+.hero .container { position: relative; z-index: 2; }
+.hero-badge {
+  display: inline-block; background: var(--dex-blue-20);
+  border: 1px solid rgba(0,101,247,0.3); border-radius: 50px;
+  padding: 6px 18px; font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 28px;
+}
+.hero .tagline {
+  font-size: 14px; font-weight: 300; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--dex-blue); margin-bottom: 20px;
+}
+.hero h1 { color: var(--dex-white); font-size: 52px; line-height: 1.1; font-weight: 400; margin-bottom: 24px; max-width: 900px; }
+.hero h1 span { color: var(--dex-blue); }
+.hero p.sub { font-size: 18px; color: rgba(255,255,255,0.75); max-width: 720px; margin-bottom: 48px; }
+.hero-stats { display: flex; gap: 56px; flex-wrap: wrap; }
+.hero-stat .num { font-size: 44px; font-weight: 700; color: var(--dex-white); line-height: 1; }
+.hero-stat .num.blue { color: var(--dex-blue); }
+.hero-stat .num.teal { color: var(--dex-teal); }
+.hero-stat .num.orange { color: var(--dex-orange); }
+.hero-stat .label { font-size: 11px; font-weight: 500; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+
+/* Decorative circles */
+.hero .circle-1 { position: absolute; width: 540px; height: 540px; border: 2px solid var(--dex-blue); border-radius: 50%; opacity: 0.12; top: -220px; right: -120px; }
+.hero .circle-2 { position: absolute; width: 320px; height: 320px; border: 2px solid var(--dex-blue); border-radius: 50%; opacity: 0.08; bottom: -120px; left: -80px; }
+.hero .circle-3 { position: absolute; width: 180px; height: 180px; background: var(--dex-blue); border-radius: 50%; opacity: 0.06; top: 80px; right: 240px; }
+
+/* STATS GRID */
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.metric-card {
+  background: var(--dex-white); border-radius: var(--radius-md);
+  padding: 24px; box-shadow: var(--shadow); border-left: 4px solid var(--dex-blue);
+}
+.metric-card h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--dex-muted); margin-bottom: 8px; font-family: var(--font-secondary); }
+.metric-card .value { font-size: 30px; font-weight: 700; color: var(--dex-navy); line-height: 1.1; }
+.metric-card .desc { font-size: 13px; color: var(--dex-muted); margin-top: 6px; }
+.metric-card.teal { border-left-color: var(--dex-teal); }
+.metric-card.orange { border-left-color: var(--dex-orange); }
+
+/* COLOR SWATCHES */
+.swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+.swatch {
+  background: var(--dex-white); border-radius: var(--radius-md);
+  box-shadow: var(--shadow); border: 1px solid var(--dex-border); overflow: hidden;
+}
+.swatch-color { height: 100px; }
+.swatch-meta { padding: 14px 18px; }
+.swatch-meta .name { font-weight: 600; color: var(--dex-navy); font-size: 14px; }
+.swatch-meta .hex { font-family: monospace; font-size: 12px; color: var(--dex-muted); margin-top: 2px; }
+.swatch-meta .use { font-size: 12px; color: var(--dex-muted); margin-top: 6px; }
+
+/* FONT CARDS */
+.font-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.font-card {
+  background: var(--dex-white); border: 1px solid var(--dex-border);
+  border-radius: var(--radius-md); padding: 32px; box-shadow: var(--shadow);
+}
+.font-card .sample { font-size: 48px; line-height: 1; margin-bottom: 18px; color: var(--dex-navy); }
+.font-card .sample-q { font-family: var(--font-primary); }
+.font-card .sample-p { font-family: var(--font-secondary); font-weight: 500; }
+.font-card .name { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dex-blue); margin-bottom: 6px; }
+.font-card .role { font-size: 14px; color: var(--dex-muted); }
+
+/* STRUCTURE TIMELINE */
+.structure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+.struct-card {
+  background: var(--dex-white); border: 1px solid var(--dex-border);
+  border-radius: var(--radius-md); padding: 20px; box-shadow: var(--shadow);
+  position: relative;
+}
+.struct-card .idx {
+  position: absolute; top: -10px; left: 20px;
+  background: var(--dex-blue); color: var(--dex-white);
+  font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+}
+.struct-card h4 { font-size: 15px; color: var(--dex-navy); margin-bottom: 6px; margin-top: 8px; font-family: var(--font-secondary); font-weight: 600; }
+.struct-card p { font-size: 13px; color: var(--dex-muted); }
+
+/* COMPONENT SHOWCASE */
+.showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.showcase-item {
+  background: var(--dex-white); border-radius: var(--radius-md);
+  padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--dex-border);
+}
+.showcase-item h4 { font-size: 17px; color: var(--dex-navy); margin-bottom: 8px; font-family: var(--font-secondary); font-weight: 600; }
+.showcase-item .lead { font-size: 13px; color: var(--dex-muted); margin-bottom: 18px; }
+.showcase-item ul { list-style: none; }
+.showcase-item ul li {
+  font-size: 13px; color: var(--dex-text); padding: 6px 0;
+  border-bottom: 1px solid var(--dex-border); display: flex; gap: 10px;
+}
+.showcase-item ul li:last-child { border-bottom: none; }
+.showcase-item ul li::before { content: '→'; color: var(--dex-blue); font-weight: 700; }
+
+/* LIVE DEMO CARDS */
+.demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+.demo-card {
+  background: var(--dex-white); border-radius: var(--radius-md);
+  padding: 24px; box-shadow: var(--shadow); border: 1px solid var(--dex-border);
+}
+.demo-card .demo-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--dex-blue); margin-bottom: 12px; }
+
+/* Finding bar demo */
+.finding {
+  display: grid; grid-template-columns: 4px 1fr; margin-bottom: 12px;
+  border-radius: var(--radius-md); overflow: hidden;
+  background: var(--dex-white); border: 1px solid var(--dex-border);
+}
+.finding .bar { min-height: 100%; }
+.finding .bar.high { background: var(--dex-navy); }
+.finding .bar.med { background: var(--dex-blue); }
+.finding .bar.low { background: rgba(0,101,247,0.3); }
+.finding .content { padding: 14px 18px; }
+.finding .content h5 { font-size: 13px; font-weight: 600; color: var(--dex-navy); font-family: var(--font-secondary); }
+.finding .content p { font-size: 12px; color: var(--dex-muted); margin-top: 3px; }
+
+/* Badge demo */
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-right: 6px; margin-bottom: 6px; }
+.badge-critical { background: var(--dex-navy); color: var(--dex-white); }
+.badge-warning { background: var(--dex-blue-10); color: var(--dex-blue); }
+.badge-info { background: var(--dex-blue-light); color: var(--dex-blue); }
+.badge-positive { background: var(--dex-teal); color: var(--dex-white); }
+
+/* Locked demo */
+.locked-demo { position: relative; border-radius: var(--radius-md); overflow: hidden; }
+.locked-content-demo {
+  filter: blur(5px); opacity: 0.5; padding: 18px; background: var(--dex-light-bg);
+  border-radius: var(--radius-md); pointer-events: none;
+}
+.locked-content-demo p { color: var(--dex-navy); font-size: 14px; }
+.locked-overlay-demo {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  background: rgba(244, 246, 252, 0.3); backdrop-filter: blur(2px);
+}
+.locked-icon-demo {
+  width: 44px; height: 44px; background: var(--dex-navy); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 8px;
+}
+.locked-icon-demo svg { width: 20px; height: 20px; fill: var(--dex-white); }
+
+/* ANTI-PATTERN TABLE */
+.anti-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.anti-card {
+  background: var(--dex-white); border-radius: var(--radius-md);
+  padding: 20px; border: 1px solid var(--dex-border); box-shadow: var(--shadow);
+}
+.anti-card.bad { border-left: 4px solid var(--dex-orange); }
+.anti-card.good { border-left: 4px solid var(--dex-teal); }
+.anti-card .tag { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.anti-card.bad .tag { color: var(--dex-orange); }
+.anti-card.good .tag { color: var(--dex-teal); }
+.anti-card h5 { font-size: 14px; color: var(--dex-navy); font-family: var(--font-secondary); font-weight: 600; margin-bottom: 4px; }
+.anti-card p { font-size: 12px; color: var(--dex-muted); }
+
+/* CASE STUDIES */
+.case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.case-card {
+  background: var(--dex-white); border-radius: var(--radius-md);
+  padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--dex-border);
+  border-top: 4px solid var(--dex-blue); position: relative;
+}
+.case-card.deep { border-top-color: var(--dex-navy); }
+.case-card.oxalis { border-top-color: var(--dex-teal); }
+.case-card .step { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dex-blue); margin-bottom: 8px; }
+.case-card h4 { font-size: 20px; color: var(--dex-navy); margin-bottom: 10px; font-family: var(--font-secondary); font-weight: 600; }
+.case-card p { font-size: 13px; color: var(--dex-muted); margin-bottom: 14px; }
+.case-card .highlights li {
+  font-size: 13px; color: var(--dex-text); padding: 6px 0;
+  border-bottom: 1px solid var(--dex-border); list-style: none; display: flex; gap: 8px;
+}
+.case-card .highlights li::before { content: '●'; color: var(--dex-blue); font-size: 9px; padding-top: 2px; }
+.case-card .highlights li:last-child { border-bottom: none; }
+
+/* DOUBLE-CHECK CALLOUT */
+.callout {
+  background: var(--dex-blue-10); border-left: 4px solid var(--dex-blue);
+  padding: 28px 32px; border-radius: var(--radius-md);
+  margin-top: 28px;
+}
+.callout h4 { font-size: 17px; color: var(--dex-navy); margin-bottom: 8px; font-family: var(--font-secondary); font-weight: 600; }
+.callout p { font-size: 14px; color: var(--dex-text); }
+.callout strong { color: var(--dex-blue); }
+.callout.orange { background: rgba(255, 127, 0, 0.08); border-left-color: var(--dex-orange); }
+.callout.orange strong { color: var(--dex-orange); }
+
+/* GIFT SECTION */
+.gift-section {
+  background: var(--dex-navy); color: var(--dex-white);
+  padding: 100px 0; position: relative; overflow: hidden;
+}
+.gift-section .circle-g1 { position: absolute; width: 400px; height: 400px; border: 2px solid var(--dex-blue); border-radius: 50%; opacity: 0.1; top: -150px; right: -80px; }
+.gift-section .circle-g2 { position: absolute; width: 260px; height: 260px; border: 2px solid var(--dex-teal); border-radius: 50%; opacity: 0.08; bottom: -100px; left: -60px; }
+.gift-section .container { position: relative; z-index: 2; }
+.gift-section h2 { color: var(--dex-white); font-size: 40px; text-align: center; margin-bottom: 12px; }
+.gift-section .gift-sub { color: rgba(255,255,255,0.7); font-size: 17px; text-align: center; max-width: 720px; margin: 0 auto 56px; }
+
+.install-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.install-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg); padding: 28px; transition: transform 0.2s, border-color 0.2s;
+}
+.install-card:hover { transform: translateY(-4px); border-color: var(--dex-blue); }
+.install-card .install-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dex-blue); margin-bottom: 10px; }
+.install-card h4 { color: var(--dex-white); font-size: 18px; margin-bottom: 10px; font-family: var(--font-secondary); font-weight: 600; }
+.install-card p { color: rgba(255,255,255,0.65); font-size: 13px; margin-bottom: 16px; }
+.install-card pre {
+  background: rgba(0,0,0,0.4); color: #7dd3fc; padding: 14px 16px;
+  border-radius: var(--radius-sm); font-size: 12px; overflow-x: auto;
+  border: 1px solid rgba(255,255,255,0.08); font-family: 'SF Mono', Monaco, monospace;
+}
+.install-card pre code { color: #e2e8f0; }
+.install-card pre .comment { color: rgba(255,255,255,0.4); }
+
+.gift-cta-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.gift-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px; border-radius: var(--radius-sm);
+  font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: transform 0.2s, background 0.2s;
+}
+.gift-cta.primary { background: var(--dex-blue); color: var(--dex-white); }
+.gift-cta.primary:hover { background: #0052cc; transform: translateY(-2px); }
+.gift-cta.secondary { background: transparent; color: var(--dex-white); border: 1px solid rgba(255,255,255,0.3); }
+.gift-cta.secondary:hover { border-color: var(--dex-white); transform: translateY(-2px); }
+
+/* FILES TABLE */
+.files-list {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg); padding: 32px; margin-top: 40px;
+}
+.files-list h3 { color: var(--dex-white); font-size: 18px; margin-bottom: 18px; font-family: var(--font-secondary); font-weight: 600; }
+.files-list .file-row {
+  display: grid; grid-template-columns: 100px 1fr auto;
+  gap: 16px; align-items: center; padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.files-list .file-row:last-child { border-bottom: none; }
+.files-list .file-type {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px; text-align: center;
+}
+.file-type.ref { background: rgba(22, 171, 139, 0.18); color: var(--dex-teal); }
+.file-type.fb { background: rgba(0, 101, 247, 0.2); color: #7dd3fc; }
+.files-list .file-name { color: var(--dex-white); font-size: 14px; font-family: 'SF Mono', Monaco, monospace; }
+.files-list .file-desc { color: rgba(255,255,255,0.65); font-size: 13px; text-align: right; }
+
+/* FOOTER */
+.footer {
+  background: var(--dex-navy); color: var(--dex-white);
+  padding: 56px 40px 48px; text-align: center;
+  position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer .circle-f { position: absolute; border: 1px solid var(--dex-blue); border-radius: 50%; opacity: 0.08; }
+.footer .circle-f.c1 { width: 220px; height: 220px; top: -80px; right: -40px; }
+.footer .circle-f.c2 { width: 140px; height: 140px; bottom: -50px; left: -30px; }
+.footer-logo { height: 64px; margin-bottom: 20px; }
+.footer p { opacity: 0.55; font-size: 13px; }
+.footer .go-beyond { font-size: 12px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: var(--dex-blue); margin-top: 16px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  .nav-links {
+    display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100vh; height: 100dvh;
+    background: var(--dex-white); flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 0; z-index: 999; padding: 80px 40px 40px;
+  }
+  .nav-links.open { display: flex !important; }
+  .nav-links li { width: 100%; text-align: center; border-bottom: 1px solid var(--dex-border); }
+  .nav-links a { display: block; padding: 16px 0; font-size: 16px; color: var(--dex-navy) !important; }
+  .hero { padding: 56px 24px 72px; }
+  .hero h1 { font-size: 32px; }
+  .hero p.sub { font-size: 16px; }
+  .hero-stats { gap: 24px; }
+  .hero-stat .num { font-size: 32px; }
+  section { padding: 48px 0; }
+  section h2 { font-size: 24px; }
+  .font-cards { grid-template-columns: 1fr; }
+  .demo-grid, .anti-grid { grid-template-columns: 1fr; }
+  .gift-section h2 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- URGENCY -->
+<div class="urgency">Zverejnené 23. apríla 2026 &nbsp;·&nbsp; 17 memory súborov &nbsp;·&nbsp; 3 týždne design learnings</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <a href="#top"><img class="nav-logo" src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Light-Landscape@2x.png" alt="Dexfinity"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#intro">Úvod</a></li>
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#structure">Štruktúra</a></li>
+      <li><a href="#components">Komponenty</a></li>
+      <li><a href="#cases">Case studies</a></li>
+      <li><a href="#rules">Pravidlá</a></li>
+      <li><a href="#gift" class="cta">Darček →</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="container">
+    <div class="hero-badge">Design Retrospective · Apríl 2026</div>
+    <div class="tagline">Dexfinity Design Learnings</div>
+    <h1>3 týždne. 17 memory súborov. <span>Jeden brand.</span></h1>
+    <p class="sub">Prehľad všetkého, čo sme sa naučili pri stavaní Dexfinity design systému, AI Ads Auditov a branded výstupov. Na konci si môžete odniesť „darček" — memory pack, ktorý tieto learnings importuje do vašich vlastných Claude Code inštalácií.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num blue">17</div><div class="label">Memory súborov</div></div>
+      <div class="hero-stat"><div class="num">6</div><div class="label">Reference knihy</div></div>
+      <div class="hero-stat"><div class="num teal">11</div><div class="label">Design pravidiel</div></div>
+      <div class="hero-stat"><div class="num orange">3+</div><div class="label">Klientske audity</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / WHY -->
+<section id="intro">
+  <div class="container">
+    <h2>Prečo tento dokument</h2>
+    <p class="section-sub">Za posledné 3 týždne som so svojím Claude Code tímom postavil komplexný design systém pre Dexfinity — od AI Ads Auditov cez email šablóny po dashboards. Všetko som vrstvil do memory súborov, aby sa learnings nestrácali. Dnes ich chcem odovzdať celému tímu.</p>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Výzva</h3>
+        <div class="value">Konzistencia</div>
+        <p class="desc">Každý výstup (landing, email, deck) musí vyzerať ako Dexfinity — nie generic</p>
+      </div>
+      <div class="metric-card teal">
+        <h3>Riešenie</h3>
+        <div class="value">Memory stack</div>
+        <p class="desc">Pravidlá, referenčné knihy a patterns zapísané raz, použité stále</p>
+      </div>
+      <div class="metric-card orange">
+        <h3>Výsledok</h3>
+        <div class="value">Opakovateľnosť</div>
+        <p class="desc">Audit = jedna veta, a Claude vyrobí branded HTML podľa gold-standardu</p>
+      </div>
+      <div class="metric-card">
+        <h3>Gift</h3>
+        <div class="value">Pre tím</div>
+        <p class="desc">17 memory súborov v repe pod DXFNT — stačí klon + copy, a máte to doma</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND FOUNDATIONS -->
+<section class="alt" id="brand">
+  <div class="container">
+    <h2>1 · Brand foundations</h2>
+    <p class="section-sub">Všetky vizuály — bez výnimky — používajú tieto farby, fonty a logá. Žiadne #00D4AA teal, žiadne default sans-serif, žiadne text-only „Dexfinity Audit" logá.</p>
+
+    <span class="cat-header">Core paleta</span>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#05024E;"></div>
+        <div class="swatch-meta">
+          <div class="name">Navy</div>
+          <div class="hex">#05024E</div>
+          <div class="use">Hero, pricing bg, severity high, premium feel</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0065F7;"></div>
+        <div class="swatch-meta">
+          <div class="name">Blue</div>
+          <div class="hex">#0065F7</div>
+          <div class="use">CTA, akcenty, interaktívne prvky, featured border</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#16AB8B;"></div>
+        <div class="swatch-meta">
+          <div class="name">Teal</div>
+          <div class="hex">#16AB8B</div>
+          <div class="use">CTA tlačidlá, pozitívne badges, riešenia</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ff7f00;"></div>
+        <div class="swatch-meta">
+          <div class="name">Orange</div>
+          <div class="hex">#ff7f00</div>
+          <div class="use">Urgency, wasted spend, „STE TU" marker</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F4F6FC;border:1px solid var(--dex-border);"></div>
+        <div class="swatch-meta">
+          <div class="name">Light BG</div>
+          <div class="hex">#F4F6FC</div>
+          <div class="use">Alt sekcie, zvýraznenia, jemné pozadia</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ffffff;border:1px solid var(--dex-border);"></div>
+        <div class="swatch-meta">
+          <div class="name">White</div>
+          <div class="hex">#FFFFFF</div>
+          <div class="use">Karty, kontent, backgrounds</div>
+        </div>
+      </div>
+    </div>
+
+    <span class="cat-header">Typografia</span>
+    <div class="font-cards">
+      <div class="font-card">
+        <div class="sample sample-q">Questrial</div>
+        <div class="name">Primary · Headings</div>
+        <div class="role">H1, H2, H3 — geometrický, veľkorysý, vzdušný. Vyjadruje premium feel bez serify.</div>
+      </div>
+      <div class="font-card">
+        <div class="sample sample-p">Poppins</div>
+        <div class="name">Secondary · Body + UI</div>
+        <div class="role">Odseky, labels, buttons, tabuľky — čitateľný v každej veľkosti, má 5 gramáží.</div>
+      </div>
+    </div>
+
+    <span class="cat-header">Logo pravidlá</span>
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h4>Navigation logo</h4>
+        <p class="lead">Na bielom pozadí — <strong>Light variant</strong>.</p>
+        <ul>
+          <li>Min výška <strong>48px</strong> — pod 48 je „Go Beyond" tagline nečitateľný</li>
+          <li>Light PNG z dexfinity.com/wp-content (2× retina)</li>
+          <li>Nikdy text-only náhrady („Dexfinity Audit" = ❌)</li>
+        </ul>
+      </div>
+      <div class="showcase-item">
+        <h4>Footer logo</h4>
+        <p class="lead">Na navy pozadí — <strong>Dark variant</strong>.</p>
+        <ul>
+          <li>Min výška <strong>64px</strong> — footer logo je brand anchor</li>
+          <li>Pod logom dátum + „Go Beyond" tagline</li>
+          <li>Dekoratívne kruhy v pozadí s opacity 0.08</li>
+        </ul>
+      </div>
+      <div class="showcase-item">
+        <h4>Dekoratívne kruhy</h4>
+        <p class="lead">Lego brick Dexfinity identity.</p>
+        <ul>
+          <li>Border 2px, color = blue, opacity 0.06–0.12</li>
+          <li>Vždy 3 vrstvy: veľký, stredný, akcentový</li>
+          <li>Negative space — vystupujú z kraja, nie v strede</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. STRUCTURE -->
+<section id="structure">
+  <div class="container">
+    <h2>2 · Architektúra auditu (18 sekcií, ten poradie rozhoduje)</h2>
+    <p class="section-sub">Každý AI Ads Audit — Aquapond, Nebshop, Lamely3D, Oxalis — má rovnakú kostru. Poradie sekcií nie je náhoda: je to funnel od hodnoty cez FOMO k cene.</p>
+
+    <div class="structure-grid">
+      <div class="struct-card"><span class="idx">01</span><h4>Urgency bar</h4><p>Modrá lišta, sezónna správa</p></div>
+      <div class="struct-card"><span class="idx">02</span><h4>Nav</h4><p>Sticky, biela + blur, logo 48px, CTA link zvýraznený</p></div>
+      <div class="struct-card"><span class="idx">03</span><h4>Hero</h4><p>Navy bg, kruhy, badge s cenou, tagline, h1, hero stats</p></div>
+      <div class="struct-card"><span class="idx">04</span><h4>Sezónnosť</h4><p>SVG trend chart, „STE TU" pulz, peak zóna</p></div>
+      <div class="struct-card"><span class="idx">05</span><h4>O klientovi</h4><p>4 metric karty (obrat, rast, budget, pain)</p></div>
+      <div class="struct-card"><span class="idx">06</span><h4>Meta Ads</h4><p>Cat headers, ad cards grid, priority summary</p></div>
+      <div class="struct-card"><span class="idx">07</span><h4>Google Ads</h4><p>Audit tabuľka, findings, priority summary</p></div>
+      <div class="struct-card"><span class="idx">08</span><h4>Hlavné zistenia</h4><p>Findings s color-coded severity barmi</p></div>
+      <div class="struct-card"><span class="idx">09</span><h4>Summary box</h4><p>Navy, 4× score X/10, dekoratívne kruhy</p></div>
+      <div class="struct-card"><span class="idx">10</span><h4>Odporúčania</h4><p>Timeline — 3 kroky, modré pulzujúce body</p></div>
+      <div class="struct-card"><span class="idx">11</span><h4>Budget</h4><p>Tabuľka rozdelenia budgetu</p></div>
+      <div class="struct-card"><span class="idx">12</span><h4>Gap analýza</h4><p>Metodológia box, tabuľka produkt × dopyt × reklama</p></div>
+      <div class="struct-card"><span class="idx">13</span><h4>Bonus banner</h4><p>Modrý gradient pre zlúčené insights</p></div>
+      <div class="struct-card"><span class="idx">14</span><h4>Heureka / social proof</h4><p>Metriky, quote cards, ad copy návrhy</p></div>
+      <div class="struct-card"><span class="idx">15</span><h4>PageSpeed</h4><p>Karty s orange border pre zlé skóre</p></div>
+      <div class="struct-card"><span class="idx">16</span><h4>Konkurencia</h4><p>Tabuľka organic competitors, brand KW SERP</p></div>
+      <div class="struct-card"><span class="idx">17</span><h4>Locked (3×)</h4><p>Blurred content + unlock CTA → pricing</p></div>
+      <div class="struct-card"><span class="idx">18</span><h4>Pricing + Footer</h4><p>Wasted spend reframe → 2× flip card s IBAN</p></div>
+    </div>
+
+    <div class="callout">
+      <h4>Prečo práve tento sled</h4>
+      <p>Poradie je funnel. <strong>Hodnota najskôr</strong> (sekcie 3–16, buduje dôveru), <strong>FOMO v strede</strong> (17 — 3× locked), <strong>reframe ceny na konci</strong> (18 — wasted spend box pred pricing). Wasted spend box <em>musí</em> byť pred pricing kartami, inak funnel nefunguje.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. COMPONENTS -->
+<section class="alt" id="components">
+  <div class="container">
+    <h2>3 · Signature komponenty</h2>
+    <p class="section-sub">Niektoré komponenty sa na audite „chytili" — identifikujú Dexfinity audit na prvý pohľad. Sú patentované v CSS library.</p>
+
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <h4>Flip cards na platbu</h4>
+        <p class="lead">Pricing karta sa otočí na IBAN údaje pre bankový prevod — bez modálu, bez odchodu z kontextu.</p>
+        <ul>
+          <li><code>.flip-front</code> = position relative (určuje výšku)</li>
+          <li><code>.flip-back</code> = position absolute (overlay)</li>
+          <li>Hover transform MUSÍ byť vypnutý v flip kontexte</li>
+          <li>Copy-to-clipboard na IBAN (small inline JS)</li>
+        </ul>
+      </div>
+      <div class="showcase-item">
+        <h4>Locked sekcie s unlock CTA</h4>
+        <p class="lead">3 sekcie s <code>filter: blur(6px)</code>, overlay s lock ikonou, scroll-to-pricing CTA.</p>
+        <ul>
+          <li>ROAS kalkulácia, budget leaks, akčný plán</li>
+          <li>Navy 64px circular lock icon, white SVG</li>
+          <li>Badge „Pro klientov" + „Odomknúť →"</li>
+          <li>Smooth scroll do <code>#pricing</code></li>
+        </ul>
+      </div>
+      <div class="showcase-item">
+        <h4>Finding bars (severity)</h4>
+        <p class="lead">4px farebný bar vľavo = priorita findingu. Žiadne semaphore kruhy ani emoji.</p>
+        <ul>
+          <li><code>.bar.high</code> = navy (kritické)</li>
+          <li><code>.bar.med</code> = blue (stredné)</li>
+          <li><code>.bar.low</code> = blue 30% (nice-to-have)</li>
+          <li>Odporúčanie v <code>.rec</code> boxe pod finding textom</li>
+        </ul>
+      </div>
+      <div class="showcase-item">
+        <h4>Wasted spend context box</h4>
+        <p class="lead">Nad pricing kartami 3-stĺpcový grid: spend / wasted % / ROI payback. Klient číta „stratím viac ako zaplatím za audit."</p>
+        <ul>
+          <li>Navy-transparent bg nad pricing</li>
+          <li>Biely spend / orange wasted / teal payback</li>
+          <li>Povinná komponenta — bez nej funnel stráca silu</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="demo-grid">
+      <div class="demo-card">
+        <div class="demo-label">Live ukážka: Finding bars</div>
+        <div class="finding"><div class="bar high"></div><div class="content"><h5>Chýbajúca brand ochrana</h5><p>Konkurencia biduje na váš brand keyword. Kritické — okamžitá akcia.</p></div></div>
+        <div class="finding"><div class="bar med"></div><div class="content"><h5>Slabá gap pokrývka</h5><p>3 produkty bez reklamy napriek silnému dopytu (4800/mes).</p></div></div>
+        <div class="finding"><div class="bar low"></div><div class="content"><h5>Zlá kvalita ad copy</h5><p>Chýbajú recenzie v headline — nice to have.</p></div></div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-label">Live ukážka: Locked section</div>
+        <div class="locked-demo">
+          <div class="locked-content-demo">
+            <p>Reálny ROAS po reattribúcii konverzií: <strong>3.42</strong> namiesto 1.8, ktoré ukazuje GA4.</p>
+            <p>Budget leaks: <strong>–28 %</strong> spend na search terms, ktoré nekonvertujú…</p>
+          </div>
+          <div class="locked-overlay-demo">
+            <div class="locked-icon-demo"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div>
+            <div style="font-size:12px;color:var(--dex-navy);font-weight:600;">Odomknúť po platbe →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-card" style="margin-top:20px;">
+      <div class="demo-label">Badge systém</div>
+      <span class="badge badge-critical">Kritické</span>
+      <span class="badge badge-warning">Na overenie</span>
+      <span class="badge badge-info">Príležitosť</span>
+      <span class="badge badge-positive">Silný základ</span>
+      <p style="font-size:12px;color:var(--dex-muted);margin-top:10px;">Namiesto semaforu (červená/žltá/zelená) používame navy/blue pre severity, teal pre pozitívne, blue pre info. Dexfinity-native.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CASE STUDIES -->
+<section id="cases">
+  <div class="container">
+    <h2>4 · Case studies — progression z 3 týždňov</h2>
+    <p class="section-sub">Každý audit niečo nové priniesol. Tieto tri sú míľniky evolúcie.</p>
+
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="step">Týždeň 1 · Baseline</div>
+        <h4>Aquapond</h4>
+        <p>Prvý gold-standard audit. Zaviedli sme 18-sekciovú architektúru, flip cards, locked sekcie, wasted spend box.</p>
+        <ul class="highlights">
+          <li>Definovaná paleta a typografia</li>
+          <li>Flip card platobný UX</li>
+          <li>Sezónny SVG chart s „STE TU" pulzom</li>
+          <li>Pricing: 1 290 € + 1 690 € setup</li>
+        </ul>
+      </div>
+      <div class="case-card deep">
+        <div class="step">Týždeň 2 · Evolúcia</div>
+        <h4>Lamely3D (Deep)</h4>
+        <p>Multi-trh variant. Priniesol executive summary floating box, quick wins framing, horizontálne bar charty, multi-trh dashboard SK/CZ/DE/AT.</p>
+        <ul class="highlights">
+          <li>Executive summary floating pod hero</li>
+          <li>Color-coded highlight boxes (positive/warning)</li>
+          <li>Ad creative showcase s Library ID</li>
+          <li>Print styles pre PDF export</li>
+        </ul>
+      </div>
+      <div class="case-card oxalis">
+        <div class="step">Týždeň 3 · Dospievanie</div>
+        <h4>Oxalis Tea</h4>
+        <p>Double-check rule sa narodila tu — agent deklaroval „Heureka SK neexistuje" na základe 404. Realita: profil bol pod iným slug-om.</p>
+        <ul class="highlights">
+          <li>Zavedené overovanie 2× pre negatívne findings</li>
+          <li>„Na overenie" badge namiesto „Kritické"</li>
+          <li>Gap analysis standard sa ukotvilo</li>
+          <li>Logo min sizes (48/64 px) po „Go Beyond" incidente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. RULES / ANTI-PATTERNS -->
+<section class="alt" id="rules">
+  <div class="container">
+    <h2>5 · Pravidlá &amp; anti-patterns</h2>
+    <p class="section-sub">Pravidlo obsiahnuté v memory súbore = tím ho už nemusí hľadať. Týchto 11 feedback súborov pokrýva najčastejšie chyby.</p>
+
+    <div class="anti-grid">
+      <div class="anti-card bad">
+        <div class="tag">Anti-pattern</div>
+        <h5>Prekrývajúce sa CTA tlačidlá</h5>
+        <p>Primary + secondary button bez dostatočného paddingu, na mobile sa tap tapne zle.</p>
+      </div>
+      <div class="anti-card good">
+        <div class="tag">Správne</div>
+        <h5>Action bar pattern</h5>
+        <p>Flex row s gap: 12, alebo oddelený kontajner. Po implementácii VŽDY screenshot.</p>
+      </div>
+      <div class="anti-card bad">
+        <div class="tag">Anti-pattern</div>
+        <h5>Logo pod 48 px v nave</h5>
+        <p>„Go Beyond" tagline sa stratí, brand feel zmizne.</p>
+      </div>
+      <div class="anti-card good">
+        <div class="tag">Správne</div>
+        <h5>Nav 48, Footer 64, Hero 80</h5>
+        <p>Footer je brand anchor — musí byť výrazný.</p>
+      </div>
+      <div class="anti-card bad">
+        <div class="tag">Anti-pattern</div>
+        <h5>Hover transform v flip karte</h5>
+        <p>translateY(-4px) + 3D rotate = rozbitá perspektíva.</p>
+      </div>
+      <div class="anti-card good">
+        <div class="tag">Správne</div>
+        <h5>Vypnuté hover v flip kontexte</h5>
+        <p><code>.flip-card .pricing-card:hover { transform: none; }</code></p>
+      </div>
+      <div class="anti-card bad">
+        <div class="tag">Anti-pattern</div>
+        <h5>Plain text Gmail drafty</h5>
+        <p>Signature sa nerenderuje, rozbité formátovanie, žiadna branded hlavička.</p>
+      </div>
+      <div class="anti-card good">
+        <div class="tag">Správne</div>
+        <h5>Vždy contentType: html + signature</h5>
+        <p>API signature neautomaticky nepridá — pripojiť manuálne.</p>
+      </div>
+      <div class="anti-card bad">
+        <div class="tag">Anti-pattern</div>
+        <h5>Neoverené negatívne findings</h5>
+        <p>„X neexistuje" na základe 404 → klient vyvráti → credibility kaput.</p>
+      </div>
+      <div class="anti-card good">
+        <div class="tag">Správne</div>
+        <h5>Double-check rule</h5>
+        <p>Variácie názvov, site: search, cross-reference webu klienta. Ak nejde overiť → „Na overenie" badge.</p>
+      </div>
+      <div class="anti-card bad">
+        <div class="tag">Anti-pattern</div>
+        <h5>Generic farby (#00D4AA teal)</h5>
+        <p>Jeden hex mimo palety = vizuál vyzerá ako SaaS template.</p>
+      </div>
+      <div class="anti-card good">
+        <div class="tag">Správne</div>
+        <h5>CSS variables only</h5>
+        <p>Nikdy inline hex — vždy <code>var(--dex-teal)</code>.</p>
+      </div>
+    </div>
+
+    <div class="callout orange">
+      <h4>Double-check rule — najcennejšie learning</h4>
+      <p>Každý finding tvaru „X neexistuje" / „0 Y" / „404" / „Neviditeľný" MUSÍ byť overený <strong>dvakrát nezávisle</strong> pred zaradením do auditu. Variácie názvov (s/bez pomlčky, s/bez suffix), Google <code>site:</code> search, cross-reference na webe klienta. Ak nejde overiť (403, block) → <strong>badge „Na overenie"</strong>, nie „Kritické". Jedna vyvrátená tvrdá veta spochybní celý audit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. GIFT -->
+<section class="gift-section" id="gift">
+  <div class="circle-g1"></div>
+  <div class="circle-g2"></div>
+  <div class="container">
+    <h2>Darček pre tím 🎁</h2>
+    <p class="gift-sub">Toto všetko si môžete odniesť. Stiahnite si <strong>Dexfinity Design Memory Pack</strong> — 17 memory súborov, ktoré váš Claude Code okamžite premenia na Dexfinity designera.</p>
+
+    <div class="install-grid">
+      <div class="install-card">
+        <div class="install-label">Krok 1 · Klon</div>
+        <h4>Stiahni repo</h4>
+        <p>Repo je public pod DXFNT org.</p>
+        <pre><code>git clone https://github.com/DXFNT/dexfinity-design-memory.git
+cd dexfinity-design-memory</code></pre>
+      </div>
+      <div class="install-card">
+        <div class="install-label">Krok 2 · Import</div>
+        <h4>Skopíruj memory do Claude</h4>
+        <p>Globálne — dostupné v každom projekte.</p>
+        <pre><code>mkdir -p ~/.claude/memory
+cp memory/*.md ~/.claude/memory/</code></pre>
+      </div>
+      <div class="install-card">
+        <div class="install-label">Krok 3 · Použi</div>
+        <h4>Skús pilotne</h4>
+        <p>Napíš v Claude Code v novom projekte:</p>
+        <pre><code><span class="comment"># napíš presne toto:</span>
+urob audit pre aquapond.sk</code></pre>
+      </div>
+    </div>
+
+    <div class="files-list">
+      <h3>Čo je v packu (17 súborov)</h3>
+
+      <div class="file-row">
+        <span class="file-type ref">Ref</span>
+        <span class="file-name">reference_audit_html_design_system.md</span>
+        <span class="file-desc">Master CSS/HTML library — 33 KB, všetky komponenty</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type ref">Ref</span>
+        <span class="file-name">reference_audit_product_template.md</span>
+        <span class="file-desc">Playbook pre audit produkt, pricing, upsell</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type ref">Ref</span>
+        <span class="file-name">reference_audit_versions.md</span>
+        <span class="file-desc">ai audit vs ai audit deep — trigger words a rozdiely</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type ref">Ref</span>
+        <span class="file-name">reference_eshop_audit_methodology.md</span>
+        <span class="file-desc">12-step externý audit proces pre nové leady</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type ref">Ref</span>
+        <span class="file-name">reference_dexfinity_logos.md</span>
+        <span class="file-desc">Oficiálne logo URLs (Light/Dark)</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type ref">Ref</span>
+        <span class="file-name">reference_shoptet_premium_design_limits.md</span>
+        <span class="file-desc">Shoptet Premium design limity</span>
+      </div>
+
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_dexfinity_brand_always.md</span>
+        <span class="file-desc">Brand vždy, nikdy nie generic</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_audit_design_patterns.md</span>
+        <span class="file-desc">Page structure, anti-patterns, flip CSS</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_audit_double_check.md</span>
+        <span class="file-desc">Double-check rule pre negatívne findings</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_logo_min_sizes.md</span>
+        <span class="file-desc">Nav 48, footer 64, hero 80</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_no_overlapping_touch.md</span>
+        <span class="file-desc">Žiadne prekrývajúce interaktívne prvky</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_no_unsubstantiated_claims.md</span>
+        <span class="file-desc">Každé číslo v audite musí byť overiteľné</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_gap_analysis_standard.md</span>
+        <span class="file-desc">Keyword gap + Google Reviews + naming</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_verify_ads_on_web.md</span>
+        <span class="file-desc">Landing pages vždy navštíviť pred tvrdeniami</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_heureka_reviews_audit.md</span>
+        <span class="file-desc">Heureka reviews ako social proof</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_gmail_html.md</span>
+        <span class="file-desc">Gmail drafty vždy HTML</span>
+      </div>
+      <div class="file-row">
+        <span class="file-type fb">Rule</span>
+        <span class="file-name">feedback_gmail_signature.md</span>
+        <span class="file-desc">Signature ručne, nikdy hr tagy</span>
+      </div>
+    </div>
+
+    <div class="gift-cta-row">
+      <a href="https://github.com/DXFNT/dexfinity-design-memory" class="gift-cta primary" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.374 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.796 24 17.3 24 12c0-6.626-5.374-12-12-12z"/></svg>
+        Otvoriť repo
+      </a>
+      <a href="memory/" class="gift-cta secondary">📁 Prezrieť memory súbory</a>
+      <a href="README.md" class="gift-cta secondary">📖 Čítať README</a>
+    </div>
+
+    <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:13px;margin-top:48px;">Ak pridáte nové learnings — pošlite PR. Chceme aby tento pack rástol s tímom.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="circle-f c1"></div>
+  <div class="circle-f c2"></div>
+  <img class="footer-logo" src="https://www.dexfinity.com/wp-content/uploads/2021/03/Logo-Small-Dark-Landscape@2x.png" alt="Dexfinity">
+  <p>Dexfinity Design Learnings · Apríl 2026</p>
+  <p style="margin-top:8px;">17 memory súborov · 3 týždne · 1 brand</p>
+  <div class="go-beyond">Go Beyond</div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.body.style.overflow = document.getElementById('navLinks').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('#navLinks a').forEach(function(a) {
+  a.addEventListener('click', closeMenu);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+# Dexfinity Design Memory Pack
+
+**Darček pre Dexfinity tím** — 17 memory súborov z 3 týždňov práce na Dexfinity design systéme, AI Ads Auditoch a brand dizajne. Stiahni, importuj do svojho Claude Code, a máš celú design DNA hneď k dispozícii.
+
+## Čo v tom je
+
+### 6× Reference (knowledge base)
+- **`reference_audit_html_design_system.md`** — master CSS/HTML library (33 KB). CSS variables, sekcie, komponenty, flip cards, pricing, responsive, JavaScript patterns. Gold standard z Aquapond auditu.
+- **`reference_audit_product_template.md`** — playbook pre audit produkt: free audit → blurred upsell → flip card payment. Pricing, sales args.
+- **`reference_audit_versions.md`** — rozdiel medzi `ai audit` (1 trh, Aquapond) a `ai audit deep` (multi-trh, Lamely3D). Trigger words.
+- **`reference_eshop_audit_methodology.md`** — 12-step externý audit proces pre nové eshop leady.
+- **`reference_dexfinity_logos.md`** — oficiálne logo URLs (Light / Dark variant) pre nav a footer.
+- **`reference_shoptet_premium_design_limits.md`** — čo ide a nejde v Shoptet Premium, breaking changes, checkout limity.
+
+### 11× Feedback (pravidlá, ktoré musia byť dodržané)
+- `feedback_dexfinity_brand_always.md` — každý vizuál v Dexfinity dizajne, nikdy nie generic
+- `feedback_audit_design_patterns.md` — page structure, colors, flip cards, anti-patterns
+- `feedback_audit_double_check.md` — negatívne findings VŽDY overiť 2×
+- `feedback_logo_min_sizes.md` — nav min 48 px, footer min 64 px
+- `feedback_no_overlapping_touch.md` — nikdy neprekrývať interaktívne prvky
+- `feedback_no_unsubstantiated_claims.md` — každé číslo musí byť overiteľné
+- `feedback_gap_analysis_standard.md` — keyword gap + Google Reviews + human-friendly naming
+- `feedback_verify_ads_on_web.md` — vždy navštíviť landing pages pred tvrdeniami
+- `feedback_heureka_reviews_audit.md` — Heureka reviews ako social proof v auditoch
+- `feedback_gmail_html.md` — drafty vždy text/html
+- `feedback_gmail_signature.md` — ručne pripojiť signature
+
+## Ako to importovať do Claude Code
+
+Claude Code udržuje memory v per-project zložke. Máš dve možnosti:
+
+### A) Globálne (odporúčané pre Dexfinity agentov)
+
+Skopíruj obsah memory zložky do globálnej zložky, ktorá sa načítava pri každom projekte:
+
+```bash
+# z koreňa tohto repa:
+cp memory/*.md ~/.claude/memory/ 2>/dev/null || mkdir -p ~/.claude/memory && cp memory/*.md ~/.claude/memory/
+```
+
+Ak už máš `~/.claude/memory/MEMORY.md`, **NEPREPISUJ ho** — otvor ho a pridaj riadky z nášho `memory/MEMORY.md` ručne.
+
+### B) Per-project (ak robíš len na jednom Dexfinity projekte)
+
+```bash
+# v rámci projektu, kde chceš tieto spomienky použiť:
+PROJECT_SLUG=$(pwd | sed 's|/|-|g')
+TARGET="$HOME/.claude/projects/$PROJECT_SLUG/memory"
+mkdir -p "$TARGET"
+cp memory/*.md "$TARGET/"
+```
+
+Claude si pri ďalšom spustení v tom projekte načíta tieto súbory automaticky.
+
+### C) One-liner pre rýchly štart
+
+```bash
+git clone https://github.com/DXFNT/dexfinity-design-memory.git
+cd dexfinity-design-memory
+mkdir -p ~/.claude/memory
+cp memory/*.md ~/.claude/memory/
+```
+
+## Čo sa zmení po importe
+
+Tvoj Claude Code bude vedieť:
+- **Automaticky používať Dexfinity brand** (farby, fonty, logá) pri každom HTML / web / newsletter / dashboard výstupe
+- **Nasledovať gold-standard štruktúru auditu** (urgency bar → hero → findings → locked → pricing → footer)
+- **Neuveriteľne lepšie kontrolovať fakty** — double-check rule pre negatívne findings, overovanie reklám na webe, žiadne hádanie
+- **Zabrániť klasickým design chybám** — prekrývajúce sa touch targets, malé logá, generic štýly, zlé flip card CSS
+
+## Update cyklus
+
+Ak pridávaš nové learnings:
+1. Napíš nový `.md` do `memory/` s frontmatter (name, description, type)
+2. Pridaj riadok do `memory/MEMORY.md`
+3. Commit + push — tím si pri ďalšom `git pull` ťahá update
+
+## Čo v tom ZÁMERNE nie je
+
+- `project_*.md` súbory s klientskymi detailmi (Mamutex, email signature, atď.) — tie ostávajú privátne
+- Credentials, API keys, access tokens — žiadne v tomto repe
+
+---
+
+**Vyrobil:** Pavol Adámčik + Claude
+**Dátum:** 2026-04-23
+**Go Beyond.** 🚀
