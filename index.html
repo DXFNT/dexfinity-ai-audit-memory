@@ -381,7 +381,7 @@ section .section-sub { color: var(--dex-muted); font-size: 15px; margin-bottom: 
 <body>
 
 <!-- URGENCY -->
-<div class="urgency">Zverejnené 23. apríla 2026 &nbsp;·&nbsp; 14 memory súborov &nbsp;·&nbsp; 3 týždne audit design learnings</div>
+<div class="urgency">Zverejnené 23. apríla 2026 &nbsp;·&nbsp; 4 balíky (audit · brand · UX · skills) &nbsp;·&nbsp; 24+ memory súborov &nbsp;·&nbsp; 43 skillov</div>
 
 <!-- NAV -->
 <nav class="nav">
@@ -409,7 +409,7 @@ section .section-sub { color: var(--dex-muted); font-size: 15px; margin-bottom: 
     <div class="hero-badge">Audit Retrospective · Apríl 2026</div>
     <div class="tagline">Dexfinity AI Ads Audit Learnings</div>
     <h1>3 týždne. 14 memory súborov. <span>11 klientskych auditov.</span></h1>
-    <p class="sub">Prehľad všetkého, čo sme sa naučili pri stavaní AI Ads Auditov pre klientov — od Aquapond baseline, cez Lamely3D multi-trh deep variant, až po Oxalis double-check rule. Na konci si môžete odniesť „darček" — memory pack, ktorý tieto learnings importuje do vašich Claude Code inštalácií.</p>
+    <p class="sub">Prehľad všetkého, čo sme sa naučili pri stavaní AI Ads Auditov pre klientov — od Aquapond baseline, cez Lamely3D multi-trh deep variant, až po Oxalis double-check rule. Na konci si môžete odniesť darček — <strong>4 balíky</strong> (audit playbook, brand foundations, UX patterns, 43 skillov) v jednom install bloku pre váš Claude Code.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num blue">14</div><div class="label">Memory súborov</div></div>
       <div class="hero-stat"><div class="num">5</div><div class="label">Reference knihy</div></div>
@@ -796,30 +796,55 @@ section .section-sub { color: var(--dex-muted); font-size: 15px; margin-bottom: 
   <div class="circle-g2"></div>
   <div class="container">
     <h2>Darček pre tím 🎁</h2>
-    <p class="gift-sub">Toto všetko si môžete odniesť. Stiahnite si <strong>Dexfinity Design Memory Pack</strong> — 17 memory súborov, ktoré váš Claude Code okamžite premenia na Dexfinity designera.</p>
+    <p class="gift-sub">Postavili sme <strong>4 balíky</strong> pod DXFNT org — každý rieši inú vrstvu: audit playbook, brand DNA, UX patterns, executable skills. Nainštaluj všetky 4, Claude Code hneď pracuje ako Dexfinity-native.</p>
 
     <div class="install-grid">
       <div class="install-card">
-        <div class="install-label">Krok 1 · Klon</div>
-        <h4>Stiahni repo</h4>
-        <p>Repo je public pod DXFNT org.</p>
-        <pre><code>git clone https://github.com/DXFNT/dexfinity-ai-audit-memory.git
-cd dexfinity-ai-audit-memory</code></pre>
+        <div class="install-label">Pack 1 · Audit</div>
+        <h4>dexfinity-ai-audit-memory</h4>
+        <p><strong>14 memory súborov</strong> — kompletný AI Ads Audit playbook (gold standard, 12-step methodology, double-check rule, 33 KB HTML design system).</p>
+        <pre><code><span class="comment"># inštalácia:</span>
+git clone https://github.com/DXFNT/dexfinity-ai-audit-memory.git
+cp dexfinity-ai-audit-memory/memory/*.md ~/.claude/memory/</code></pre>
       </div>
       <div class="install-card">
-        <div class="install-label">Krok 2 · Import</div>
-        <h4>Skopíruj memory do Claude</h4>
-        <p>Globálne — dostupné v každom projekte.</p>
-        <pre><code>mkdir -p ~/.claude/memory
-cp memory/*.md ~/.claude/memory/</code></pre>
+        <div class="install-label">Pack 2 · Brand</div>
+        <h4>dexfinity-brand-memory</h4>
+        <p><strong>3 memory súbory</strong> — jadrové brand pravidlá (farby, fonty, logo URLs, min veľkosti). Každý vizuál v Dexfinity farbách.</p>
+        <pre><code><span class="comment"># inštalácia:</span>
+git clone https://github.com/DXFNT/dexfinity-brand-memory.git
+cp dexfinity-brand-memory/memory/*.md ~/.claude/memory/</code></pre>
       </div>
       <div class="install-card">
-        <div class="install-label">Krok 3 · Použi</div>
-        <h4>Skús pilotne</h4>
-        <p>Napíš v Claude Code v novom projekte:</p>
-        <pre><code><span class="comment"># napíš presne toto:</span>
-urob audit pre aquapond.sk</code></pre>
+        <div class="install-label">Pack 3 · UX</div>
+        <h4>dexfinity-ux-memory</h4>
+        <p><strong>7 memory súborov</strong> — UX patterns extrahované z reálnych auditov (navy/light rhytm, flip cards, locked sections, severity encoding).</p>
+        <pre><code><span class="comment"># inštalácia:</span>
+git clone https://github.com/DXFNT/dexfinity-ux-memory.git
+cp dexfinity-ux-memory/memory/*.md ~/.claude/memory/</code></pre>
       </div>
+      <div class="install-card">
+        <div class="install-label">Pack 4 · Skills</div>
+        <h4>claude-skills</h4>
+        <p><strong>43 executable skills</strong> — custom Claude Code skilly pre audity, Google Ads, SEO, content, dizajn. One-line install script.</p>
+        <pre><code><span class="comment"># inštalácia:</span>
+git clone https://github.com/DXFNT/claude-skills.git
+cd claude-skills &amp;&amp; ./install.sh</code></pre>
+      </div>
+    </div>
+
+    <div class="callout" style="background:rgba(22,171,139,0.12);border-left-color:var(--dex-teal);margin-top:40px;">
+      <h4 style="color:var(--dex-white);">⚡ Full Starter Kit — jeden blok, 30 sekúnd</h4>
+      <p style="color:rgba(255,255,255,0.85);margin-bottom:14px;">Nainštaluje všetky 4 balíky naraz: 43 skillov + 24 memory súborov.</p>
+      <pre style="background:rgba(0,0,0,0.4);color:#e2e8f0;padding:18px 20px;border-radius:var(--radius-sm);font-size:12px;overflow-x:auto;border:1px solid rgba(255,255,255,0.1);font-family:'SF Mono',Monaco,monospace;margin:0;"><code><span style="color:rgba(255,255,255,0.4);"># 1. Skilly</span>
+git clone git@github.com:DXFNT/claude-skills.git &amp;&amp; cd claude-skills &amp;&amp; ./install.sh &amp;&amp; cd ..
+
+<span style="color:rgba(255,255,255,0.4);"># 2. Memory packy (3 balíčky)</span>
+mkdir -p ~/.claude/memory
+for repo in dexfinity-ai-audit-memory dexfinity-brand-memory dexfinity-ux-memory; do
+  git clone https://github.com/DXFNT/$repo.git /tmp/$repo
+  cp /tmp/$repo/memory/*.md ~/.claude/memory/
+done</code></pre>
     </div>
 
     <div class="files-list">
@@ -899,15 +924,16 @@ urob audit pre aquapond.sk</code></pre>
     </div>
 
     <div class="gift-cta-row">
-      <a href="https://github.com/DXFNT/dexfinity-ai-audit-memory" class="gift-cta primary" target="_blank" rel="noopener">
+      <a href="https://github.com/DXFNT/claude-skills" class="gift-cta primary" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.374 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.796 24 17.3 24 12c0-6.626-5.374-12-12-12z"/></svg>
-        Otvoriť repo
+        Starter Kit (skills + návod)
       </a>
-      <a href="memory/" class="gift-cta secondary">📁 Prezrieť memory súbory</a>
-      <a href="README.md" class="gift-cta secondary">📖 Čítať README</a>
+      <a href="https://github.com/DXFNT/dexfinity-ai-audit-memory" class="gift-cta secondary" target="_blank" rel="noopener">📊 Audit pack</a>
+      <a href="https://github.com/DXFNT/dexfinity-brand-memory" class="gift-cta secondary" target="_blank" rel="noopener">🎨 Brand pack</a>
+      <a href="https://github.com/DXFNT/dexfinity-ux-memory" class="gift-cta secondary" target="_blank" rel="noopener">🧭 UX pack</a>
     </div>
 
-    <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:13px;margin-top:48px;">Ak pridáte nové learnings — pošlite PR. Chceme aby tento pack rástol s tímom.</p>
+    <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:13px;margin-top:48px;">Ak pridáte nové learnings — pošlite PR do relevantného packu. Chceme aby stack rástol s tímom.</p>
   </div>
 </section>
 
